@@ -1,0 +1,10 @@
+{
+  "name": "unigram-daily-pages",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily HTML pages ko ek website me date-wise dikhane wala static site",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "engines": { "node": ">=18" }
+}

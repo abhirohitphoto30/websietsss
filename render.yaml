@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: unigram-daily-pages
+    runtime: static
+    buildCommand: node build.js
+    staticPublishPath: dist
+    headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex, nofollow
