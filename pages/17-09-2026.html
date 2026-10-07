@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sania 🤍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Parisienne&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1a0f14;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;padding:0;width:100%;height:100%;overflow:hidden;
+    background:#120a0e;
+  }
+  body{
+    font-family:'Cormorant Garamond',serif;
+  }
+  .screen{
+    position:fixed;inset:0;
+    display:none;
+    width:100%;height:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+  }
+  .screen.active{display:block;}
+  .inner{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:8vh 6vw 10vh;
+    position:relative;
+    z-index:5;
+    text-align:center;
+  }
+  .emoji-field{
+    position:absolute;inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+  }
+  .float-emoji{
+    position:absolute;
+    top:110%;
+    opacity:0;
+    user-select:none;
+    will-change:transform, opacity;
+    animation-name:floatUp;
+    animation-timing-function:ease-in;
+    animation-fill-mode:forwards;
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0;}
+    8%{opacity:1;}
+    92%{opacity:0.9;}
+    100%{transform:translateY(-125vh) translateX(var(--drift,20px)) rotate(var(--spin,25deg));opacity:0;}
+  }
+
+  .tag{
+    font-family:'Dancing Script',cursive;
+    letter-spacing:1px;
+    display:inline-block;
+    padding:.35em 1em;
+    border-radius:999px;
+    font-size:clamp(1rem,2.4vw,1.35rem);
+    margin-bottom:1.4em;
+  }
+  h1.heading{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:700;
+    line-height:1.15;
+    margin:0 0 .5em 0;
+    max-width:14ch;
+  }
+  .sub-script{
+    font-family:'Great Vibes',cursive;
+    font-weight:400;
+    line-height:1;
+    margin:0 0 1.1em 0;
+  }
+  p.body-text{
+    font-size:clamp(1.08rem,2.05vw,1.45rem);
+    line-height:1.85;
+    max-width:640px;
+    margin:0 0 1.1em 0;
+    font-weight:500;
+  }
+  .name-glow{
+    font-family:'Sacramento',cursive;
+    font-size:1.28em;
+    font-weight:400;
+    padding:0 .05em;
+    text-shadow:0 0 18px currentColor;
+  }
+  .nav-love{
+    margin-top:2.4em;
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(1.9rem,4.4vw,2.6rem);
+    cursor:pointer;
+    display:inline-block;
+    padding:.3em 1em;
+    border:none;
+    background:transparent;
+    transition:transform .35s ease, letter-spacing .35s ease;
+    position:relative;
+    z-index:10;
+  }
+  .nav-love:hover{ transform:scale(1.08); }
+  .nav-love:active{ transform:scale(0.97); }
+  .nav-love::after{
+    content:'';
+    display:block;
+    width:0%;
+    height:2px;
+    margin:.15em auto 0;
+    transition:width .4s ease;
+    background:currentColor;
+    opacity:.7;
+  }
+  .nav-love:hover::after{ width:70%; }
+
+  .page-dots{
+    position:fixed;
+    bottom:14px;left:50%;
+    transform:translateX(-50%);
+    display:flex;gap:8px;
+    z-index:50;
+  }
+  .page-dots span{
+    width:7px;height:7px;border-radius:50%;
+    background:rgba(255,255,255,.28);
+    transition:all .3s ease;
+  }
+  .page-dots span.on{
+    background:rgba(255,255,255,.92);
+    transform:scale(1.3);
+  }
+
+  /* ================= PAGE 1 : Blush Rose ================= */
+  #screen0{
+    background:
+      radial-gradient(circle at 20% 20%, #ffd9e6 0%, transparent 45%),
+      radial-gradient(circle at 80% 85%, #ffb6c9 0%, transparent 50%),
+      linear-gradient(160deg,#4a1024 0%, #2c0a17 55%, #1a0510 100%);
+  }
+  #screen0 .tag{ background:rgba(255,182,201,.16); color:#ffd9e6; border:1px solid rgba(255,209,224,.35);}
+  #screen0 h1.heading{ color:#fff0f4; }
+  #screen0 .sub-script{ color:#ff9db8; font-size:clamp(1.6rem,4vw,2.4rem); }
+  #screen0 p.body-text{ color:#ffe3ea; }
+  #screen0 .name-glow{ color:#ff6f9c; }
+  #screen0 .nav-love{ color:#ffb6c9; }
+
+  /* ================= PAGE 2 : Lavender Dream ================= */
+  #screen1{
+    background:
+      radial-gradient(circle at 75% 15%, #e3d1ff 0%, transparent 45%),
+      radial-gradient(circle at 15% 80%, #c9a6ff 0%, transparent 50%),
+      linear-gradient(150deg,#2a1245 0%, #180a30 55%, #0d0620 100%);
+  }
+  #screen1 .tag{ background:rgba(201,166,255,.16); color:#e7d6ff; border:1px solid rgba(216,190,255,.4);}
+  #screen1 h1.heading{ color:#f3ebff; }
+  #screen1 .sub-script{ color:#c9a6ff; font-size:clamp(1.6rem,4vw,2.4rem); }
+  #screen1 p.body-text{ color:#ecdfff; }
+  #screen1 .name-glow{ color:#d9b3ff; }
+  #screen1 .nav-love{ color:#caa8ff; }
+
+  /* ================= PAGE 3 : Golden Sunset ================= */
+  #screen2{
+    background:
+      radial-gradient(circle at 25% 20%, #ffe0a3 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, #ff9d6c 0%, transparent 50%),
+      linear-gradient(150deg,#5a2408 0%, #331302 55%, #170801 100%);
+  }
+  #screen2 .tag{ background:rgba(255,193,110,.18); color:#ffe6bf; border:1px solid rgba(255,206,140,.4);}
+  #screen2 h1.heading{ color:#fff2dd; }
+  #screen2 .sub-script{ color:#ffb066; font-size:clamp(1.6rem,4vw,2.4rem); }
+  #screen2 p.body-text{ color:#ffedd4; }
+  #screen2 .name-glow{ color:#ff9d4d; }
+  #screen2 .nav-love{ color:#ffbf7a; }
+
+  /* ================= PAGE 4 : Midnight Stars ================= */
+  #screen3{
+    background:
+      radial-gradient(circle at 80% 10%, #9fc4ff 0%, transparent 40%),
+      radial-gradient(circle at 10% 85%, #5f7fd6 0%, transparent 50%),
+      linear-gradient(160deg,#050818 0%, #0a1230 55%, #01030c 100%);
+  }
+  #screen3 .tag{ background:rgba(159,196,255,.14); color:#dbe8ff; border:1px solid rgba(159,196,255,.35);}
+  #screen3 h1.heading{ color:#eaf2ff; }
+  #screen3 .sub-script{ color:#a9c6ff; font-size:clamp(1.6rem,4vw,2.4rem); }
+  #screen3 p.body-text{ color:#e4ecff; }
+  #screen3 .name-glow{ color:#bcd4ff; }
+  #screen3 .nav-love{ color:#a9c6ff; }
+
+  /* ================= PAGE 5 : Deep Rose Elegance ================= */
+  #screen4{
+    background:
+      radial-gradient(circle at 25% 15%, #ffb8cf 0%, transparent 42%),
+      radial-gradient(circle at 80% 85%, #ff6fa1 0%, transparent 50%),
+      linear-gradient(160deg,#3a0018 0%, #1f000d 55%, #0d0006 100%);
+  }
+  #screen4 .tag{ background:rgba(255,111,161,.16); color:#ffd4e3; border:1px solid rgba(255,150,187,.4);}
+  #screen4 h1.heading{ color:#fff0f6; }
+  #screen4 .sub-script{ color:#ff8fb4; font-size:clamp(1.7rem,4.4vw,2.6rem); }
+  #screen4 p.body-text{ color:#ffe0ea; }
+  #screen4 .name-glow{ color:#ff5c94; }
+  #screen4 .nav-love{ color:#ff9dbe; }
+  #screen4 .final-note{
+    margin-top:1.6em;
+    font-family:'Parisienne',cursive;
+    font-size:clamp(1.3rem,3vw,1.8rem);
+    color:#ffc2d9;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .float-emoji{ animation:none; opacity:.25; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="screen active" id="screen0">
+  <div class="emoji-field" id="field0"></div>
+  <div class="inner">
+    <span class="tag">❤️ Tumhari ek alag si baat hai</span>
+    <div class="sub-script">Sania...</div>
+    <h1 class="heading">Tumhe pata hai tumhari sabse khaas baat kya hai?</h1>
+    <p class="body-text">Tum jab saamne hoti ho na, toh aisa nahi lagta ki koi bahut khoobsurat ladki saamne hai&hellip; balki aisa lagta hai ki kuch bahut achha saamne ho raha hai. 🥹❤️</p>
+    <p class="body-text">Tumhari smile toh waise bhi kamaal hai, lekin tumhari woh baatein, woh chhoti-chhoti shararatein aur bina wajah hans dena&hellip; pata nahi kyun, dil ko bahut achha lagta hai.</p>
+    <p class="body-text">Kabhi kabhi tumhe dekhkar lagta hai ki khoobsurti sirf chehre par nahi hoti, kuch log apni poori personality se khoobsurat lagte hain. Aur tum&hellip; unhi logon mein se ho, <span class="name-glow">Sania</span>. 🤍</p>
+    <div class="nav-love" onclick="goTo(1)">LOVE&hellip; SANIA</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="screen" id="screen1">
+  <div class="emoji-field" id="field1"></div>
+  <div class="inner">
+    <span class="tag">🌸 Tumse baat karne ka koi bahaana nahi chahiye</span>
+    <div class="sub-script">bas yun hi&hellip;</div>
+    <h1 class="heading">Kabhi khaas topic ki zaroorat nahi hoti</h1>
+    <p class="body-text"><span class="name-glow">Sania</span>, tumse baat karne ke liye kabhi koi khaas topic nahi chahiye hota. Kabhi kabhi toh mann karta hai bas yun hi tumse baat hoti rahe&hellip; chahe baat kitni bhi random ho, chahe hum dono bekaar ki baaton par hi kyun na hans rahe hon.</p>
+    <p class="body-text">Tumhari company mein ek ajeeb sa sukoon hai. Aur sach bataun? Tumse baat karne ke baad kabhi kabhi lagta hai ki aaj ka din thoda aur achha ho gaya. 🫶</p>
+    <p class="body-text">Waise, tum itni achhi kyun ho? Thoda normal bhi raha karo, hum jaise logon ke liye mushkil ho jaata hai. 😭❤️</p>
+    <div class="nav-love" onclick="goTo(2)">LOVE&hellip; SANIA</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="screen" id="screen2">
+  <div class="emoji-field" id="field2"></div>
+  <div class="inner">
+    <span class="tag">✨ Tumhari khoobsurti ka koi ek reason nahi hai</span>
+    <div class="sub-script">poori personality&hellip;</div>
+    <h1 class="heading">Har cheez ek dusre se jud jaati hai</h1>
+    <p class="body-text">Tumhari aankhon ki tareef karun toh tumhari smile yaad aa jaati hai. Tumhari smile ki baat karun toh tumhara woh cute sa andaaz yaad aa jaata hai.</p>
+    <p class="body-text">Tumhari awaaz sunun toh lagta hai ki baaki sab baatein thodi der aur suni ja sakti hain. Aur jab tum dance karti ho na&hellip; toh tumhe dekhkar lagta hai ki tumhe khush rehne ke liye kisi khaas wajah ki zaroorat hi nahi hoti. 💃❤️</p>
+    <p class="body-text">Tumhari khoobsurti ka koi ek hissa nahi hai, <span class="name-glow">Sania</span>&hellip; tumhari poori personality hi tumhe khaas banati hai. Aur haan, itna achha lagna bhi koi zaroori nahi tha. 😏</p>
+    <div class="nav-love" onclick="goTo(3)">LOVE&hellip; SANIA</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="screen" id="screen3">
+  <div class="emoji-field" id="field3"></div>
+  <div class="inner">
+    <span class="tag">🌙 Kuch log yaad nahi aate</span>
+    <div class="sub-script">bas yaad reh jaate hain&hellip;</div>
+    <h1 class="heading">Tum bhi mere liye shayad waisi hi ho</h1>
+    <p class="body-text"><span class="name-glow">Sania</span>, kuch logon se milkar zindagi mein koi bada badlaav nahi aata&hellip; bas unki wajah se kuch pal aur achhe lagne lagte hain. Tum bhi mere liye shayad waisi hi ho.</p>
+    <p class="body-text">Tumhari koi random si baat achanak yaad aa jaati hai, tumhari smile yaad aa jaati hai, ya phir tumhara woh andaaz yaad aa jaata hai jisme tum bina kisi effort ke bhi sabka dhyaan kheench leti ho. Aur phir chehre par ek chhoti si smile aa jaati hai.</p>
+    <p class="body-text">Tumhe shayad andaaza bhi nahi hai ki tum kisi ke din ka kitna pyara hissa ban sakti ho. 🤍 Aur agar kabhi tumhe iska andaaza ho bhi gaya&hellip; toh please zyada attitude mat dikhana. 😂❤️</p>
+    <div class="nav-love" onclick="goTo(4)">LOVE&hellip; SANIA</div>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 ============ -->
+<div class="screen" id="screen4">
+  <div class="emoji-field" id="field4"></div>
+  <div class="inner">
+    <span class="tag">💌 Ek baat kehni thi, bina kisi bahaane ke</span>
+    <div class="sub-script">Sania Bilal&hellip;</div>
+    <h1 class="heading">Tum jaisi ho, waise hi bahut achhi ho</h1>
+    <p class="body-text"><span class="name-glow">Sania Bilal</span>, tum bahut khoobsurat ho&hellip; ye toh shayad tumne kai baar suna hoga. Lekin main tumhe sirf isliye khaas nahi maanta ki tum sundar ho.</p>
+    <p class="body-text">Mujhe tumhara woh andaaz achha lagta hai, jisme tum kabhi bachchon jaisi cute lagti ho, kabhi apni hi duniya mein khoyi hui, aur kabhi itni confident ki bas dekhte rehne ka mann kare. Tumhari simplicity mein bhi ek alag sa charm hai.</p>
+    <p class="body-text">Aur tumhari smile&hellip; uske baare mein kya hi kahun. 😌❤️ Bas itna samajh lo, tumhari tareef karte waqt main kabhi jhooth bolne ki zaroorat mehsoos nahi karta. Tum jaisi ho, waise hi bahut achhi ho.</p>
+    <div class="final-note">Aur haan&hellip; thodi si meri favourite bhi. 🫣🌷</div>
+    <div class="nav-love" onclick="goTo(0)">LOVE&hellip; SANIA</div>
+  </div>
+</div>
+
+<div class="page-dots" id="dots"></div>
+
+<script>
+(function(){
+  const TOTAL = 5;
+  let current = 0;
+
+  // dots
+  const dotsWrap = document.getElementById('dots');
+  for(let i=0;i<TOTAL;i++){
+    const d = document.createElement('span');
+    if(i===0) d.classList.add('on');
+    dotsWrap.appendChild(d);
+  }
+
+  const emojiSets = [
+    ['💗','🌸','✨','🤍','💕'],          // page 1 - blush
+    ['💜','🌙','⭐','🪻','✨'],          // page 2 - lavender
+    ['🧡','🌻','✨','🌅','💛'],          // page 3 - golden
+    ['💙','⭐','🌌','✨','🦋'],          // page 4 - midnight
+    ['❤️','🌹','💋','✨','🫶']           // page 5 - rose
+  ];
+
+  const fieldTimers = {};
+
+  function spawnEmoji(fieldEl, emojis){
+    const span = document.createElement('span');
+    span.className = 'float-emoji';
+    span.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    const left = Math.random()*94 + 2;
+    const size = 1.1 + Math.random()*1.7;
+    const duration = 7 + Math.random()*7;
+    const drift = (Math.random()*160 - 80) + 'px';
+    const spin = (Math.random()*70 - 35) + 'deg';
+    span.style.left = left + 'vw';
+    span.style.fontSize = size + 'rem';
+    span.style.animationDuration = duration + 's';
+    span.style.setProperty('--drift', drift);
+    span.style.setProperty('--spin', spin);
+    fieldEl.appendChild(span);
+    setTimeout(()=> span.remove(), duration*1000 + 200);
+  }
+
+  function startField(idx){
+    const fieldEl = document.getElementById('field'+idx);
+    if(!fieldEl) return;
+    stopField(idx);
+    // initial burst
+    for(let i=0;i<6;i++){
+      setTimeout(()=>spawnEmoji(fieldEl, emojiSets[idx]), i*260);
+    }
+    fieldTimers[idx] = setInterval(()=>spawnEmoji(fieldEl, emojiSets[idx]), 900);
+  }
+  function stopField(idx){
+    if(fieldTimers[idx]){ clearInterval(fieldTimers[idx]); fieldTimers[idx]=null; }
+    const fieldEl = document.getElementById('field'+idx);
+    if(fieldEl) fieldEl.innerHTML = '';
+  }
+
+  window.goTo = function(idx){
+    document.getElementById('screen'+current).classList.remove('active');
+    stopField(current);
+    current = idx % TOTAL;
+    document.getElementById('screen'+current).classList.add('active');
+    document.getElementById('screen'+current).scrollTop = 0;
+    startField(current);
+    const dots = dotsWrap.children;
+    for(let i=0;i<dots.length;i++){
+      dots[i].classList.toggle('on', i===current);
+    }
+  };
+
+  startField(0);
+})();
+</script>
+
+</body>
+</html>
